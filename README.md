@@ -1,37 +1,57 @@
 # Multi-Objective Optimization of Building Energy Performance & Indoor Comfort
 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
-![License](https://img.shields.io/badge/License-MIT-green.svg)
-![Contributions](https://img.shields.io/badge/Contributions-Welcome-brightgreen.svg)
+![ML](https://img.shields.io/badge/Model-CatBoost-orange.svg)
+![Optimization](https://img.shields.io/badge/Algorithm-NSGA--II-red.svg)
 
 ## 📌 Project Overview
-This repository provides a data-driven optimization framework designed to mitigate the trade-offs between **Building Energy Consumption**, **Indoor Thermal Comfort**, and **CO2 Emissions**. By leveraging machine learning models and the **NSGA-II** (Non-dominated Sorting Genetic Algorithm II), this tool explores optimal building configurations under both historical and future climate scenarios.
+This framework optimizes the trade-offs between **Energy Use Intensity (EUI)**, **Indoor Discomfort Degree (IDD)**, and **Operational Carbon Intensity (OCI)**. It compares a **Baseline scenario** with a **Mid-future climate scenario** using Bayesian-Optimized CatBoost and NSGA-II.
 
-## 🛠 Methodology
-The workflow integrates predictive modeling with evolutionary optimization:
-1. **Surrogate Modeling:** Training regression models to predict energy and comfort metrics.
-2. **Optimization:** Implementing NSGA-II to find the Pareto-optimal front for:
-    * **Objective 1:** Total Energy Demand (Heating/Cooling).
-    * **Objective 2:** Indoor Discomfort (Predictive Mean Vote - PMV).
-    * **Objective 3:** Environmental Impact (CO2 Footprint).
+## 📊 1. Model Selection & Performance
+We compared multiple ML architectures to find the best surrogate model. **CatBoost** showed superior performance in tracking targets across all objectives.
 
-## 📊 Key Results
-*(Tip: Place your output graph in a folder named 'results' and it will show up here)*
-![Pareto Front](results/pareto_plot.png)
+| Model Comparison | Actual vs. Predicted (CatBoost) |
+|:---:|:---:|
+| ![Comparison](results/model_comparison.png) | ![CatBoost](results/actual_vs_pred.png) |
+| *Comparison of EUI, IDD, and OCI across models* | *Sensitivity analysis and RMSE highlights* |
 
-The optimization successfully identifies a set of solutions that balance occupant comfort with energy efficiency, providing a decision-support tool for sustainable building design.
+### 🚀 BO-CatBoost Metrics
+The performance of the Bayesian-Optimized CatBoost model for both scenarios:
+![Metrics](results/performance_metrics.png)
+
+---
+
+## 🔍 2. Interpretability & Feature Importance (SHAP)
+Using SHAP (SHapley Additive exPlanations), we analyzed how each input parameter influences the model's predictions.
+![SHAP](results/shap_analysis.png)
+*Red indicates high feature values; blue indicates low. Position on the X-axis shows the impact on the prediction.*
+
+---
+
+## 🎯 3. Optimization Results (NSGA-II)
+
+### Solution Distribution
+The density and dispersion of non-dominated solutions for EUI, IDD, and OCI:
+![Distributions](results/optimization_dist.png)
+
+### Pareto Front & Trade-offs
+A parallel coordinate plot illustrates the normalized Pareto-optimal solutions.
+![Parallel Coordinates](results/parallel_coordinates.png)
+*Dark lines represent ideal solutions; the dotted line marks the baseline scheme.*
+
+---
+
+## 📉 4. Correlation Analysis
+Spearman correlation heatmap visualizing the relationships between retrofit variables:
+![Correlation](results/correlation_heatmap.png)
+
+---
 
 ## 📁 Repository Structure
-* `notebooks/`: Contains the main Jupyter Notebook (`building_energy_optimization.ipynb`) with the full pipeline.
-* `data/`: Cleaned historical and future climate datasets used for training and testing.
-* `requirements.txt`: List of necessary Python libraries to reproduce the environment.
+* `notebooks/`: Main pipeline for training and optimization.
+* `data/`: Historical and future climate datasets.
+* `results/`: All generated plots and visual analysis.
 
-## 🚀 Getting Started
-
-### Prerequisites
-Ensure you have Python 3.8+ installed.
-
-### Installation
-1. Clone the repository:
-   ```bash
-   git clone [https://github.com/Alirezza18/multiobjective-building-energy.git](https://github.com/Alirezza18/multiobjective-building-energy.git)
+## 🚀 Installation & Usage
+1. `pip install -r requirements.txt`
+2. Run `notebooks/building_energy_optimization.ipynb`
