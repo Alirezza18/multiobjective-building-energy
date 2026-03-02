@@ -1,4 +1,4 @@
-# Multi-Objective Optimization of Building Energy Performance & Indoor Comfort
+ # Multi-Objective Optimization of Building Energy Performance & Indoor Comfort
 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
 ![ML](https://img.shields.io/badge/Model-CatBoost-orange.svg)
@@ -12,18 +12,18 @@ We compared multiple ML architectures to find the best surrogate model. **CatBoo
 
 | Model Comparison | Actual vs. Predicted (CatBoost) |
 |:---:|:---:|
-| ![Comparison](results/model_comparison.png) | ![CatBoost](results/actual_vs_pred.png) |
+| ![Comparison](results/model_comparison.jpeg) | ![CatBoost](results/actual_vs_pred.png) |
 | *Comparison of EUI, IDD, and OCI across models* | *Sensitivity analysis and RMSE highlights* |
 
 ### 🚀 BO-CatBoost Metrics
 The performance of the Bayesian-Optimized CatBoost model for both scenarios:
-![Metrics](results/performance_metrics.png)
+![Metrics](results/performance_metrics.jpeg)
 
 ---
 
 ## 🔍 2. Interpretability & Feature Importance (SHAP)
 Using SHAP (SHapley Additive exPlanations), we analyzed how each input parameter influences the model's predictions.
-![SHAP](results/shap_analysis.png)
+![SHAP](results/shap_analysis.jpeg)
 *Red indicates high feature values; blue indicates low. Position on the X-axis shows the impact on the prediction.*
 
 ---
@@ -32,10 +32,10 @@ Using SHAP (SHapley Additive exPlanations), we analyzed how each input parameter
 
 ### Solution Distribution
 The density and dispersion of non-dominated solutions for EUI, IDD, and OCI:
-![Distributions](results/optimization_dist.png)
+![Distributions](results/optimization_dist.jpg)
 
 ### Pareto Front & Trade-offs
-A parallel coordinate plot illustrates the normalized Pareto-optimal solutions.
+*(Note: Please ensure parallel_coordinates is uploaded to the results folder)*
 ![Parallel Coordinates](results/parallel_coordinates.png)
 *Dark lines represent ideal solutions; the dotted line marks the baseline scheme.*
 
@@ -43,7 +43,7 @@ A parallel coordinate plot illustrates the normalized Pareto-optimal solutions.
 
 ## 📉 4. Correlation Analysis
 Spearman correlation heatmap visualizing the relationships between retrofit variables:
-![Correlation](results/correlation_heatmap.png)
+![Correlation](results/correlation_heatmap.jpeg)
 
 ---
 
