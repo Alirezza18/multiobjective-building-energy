@@ -1,5 +1,4 @@
- # Multi-Objective Optimization of Building Energy Performance & Indoor Comfort
-
+ # surrogate-accelerated-multiobjective-optimization
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
 ![ML](https://img.shields.io/badge/Model-CatBoost-orange.svg)
 ![Optimization](https://img.shields.io/badge/Algorithm-NSGA--II-red.svg)
