@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: Karimi
+    given-names: Alireza
+    orcid: "https://orcid.org/0000-0002-6296-9496"
+title: "Surrogate-Accelerated Multi-Objective Optimization for Building Energy Scenario Analysis under Climate Change"
+version: 1.0.0
+date-released: "2026-09-24"
+repository-code: "https://github.com/Alirezza18/multiobjective-building-energy"
